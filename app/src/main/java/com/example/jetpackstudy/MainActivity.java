@@ -13,10 +13,12 @@ import android.widget.TextView;
 
 import com.example.jetpackstudy.LifeCycleTest.LifeCycleTestActivity;
 import com.example.jetpackstudy.config.LogConfig;
+import com.example.jetpackstudy.livedata.LiveDataTestActivity;
 
 public class MainActivity extends AppCompatActivity {
     private String TAG = LogConfig.MAIN_TAG_PREFIX + getClass().getSimpleName();
-    private TextView tv1;
+    private TextView tv1,tv2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LifeCycleTestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        tv2 = findViewById(R.id.livedata_test);
+        tv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LiveDataTestActivity.class);
                 startActivity(intent);
             }
         });
